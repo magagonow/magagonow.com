@@ -1,0 +1,28 @@
+@charset "utf-8";
+#calculator{
+    width: 300px;
+    margin:0 auto;
+    padding: 20px;
+    background: #ccc;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+#fields{
+    width: 20%;
+    float: left;
+    line-height: 1.5;
+}
+
+#inputs {
+    width: 70%;
+    float: right;
+    
+}
+
+input {
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #000;
+    margin: 1px;
+}

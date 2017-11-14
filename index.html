@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0, initial-scale=1.0" />
+    <link href="reset.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+      <script src="script.js" defer></script>
+    </head>
+   
+    <body>
+    
+        <div id="calculator">
+        <ul id="fields">
+            <li>Сумма:</li>
+            <li>Курс:</li>
+            <li>Итого:</li>
+            </ul>
+        <div id="inputs">
+            <input type="text" class="input sum">
+            <input type="text" class="input exchange">
+            <input type="text" class="input result" disabled>
+        </div>
+
+        </div>
+            <script type="text/javascript">
+                var inputs = document.querySelectorAll('.input'); // берем все поля
+                var sum = document.querySelector('.sum'); // берем поле Сумма
+                var exchange = document.querySelector('.exchange'); // берем поле Курс
+                var result = document.querySelector('.result'); // берем поле Итого
+                for (var i = inputs.length - 1; i >= 0; i--) {
+                inputs[i].addEventListener('input', calculate); // вешаем обработчик на все элементы
+                }
+                function calculate() {
+                var calc = 1;
+                var rgx = /^[0-9]*\.?[0-9]*$/; // регулярка (только цифры и точка)
+                this.value = this.value.match(rgx); // применяем регулярку
+                calc = sum.value * exchange.value; // умножаем поля
+                if (calc >= 15000) { // если больше 15000, добавляем класс с красной границей
+                result.classList.add('error');
+                } 
+                else {
+                result.classList.remove('error');
+                }
+                result.value = calc.toFixed(2); // выводим результат в поле Итого c 2 фирами после точки
+                }
+
+        </script>
+        
+    </body>
+</html>
